@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: rgba(42, 46, 48, 0.8);
+    background-image: linear-gradient(to bottom,rgba(42, 46, 48, 0.8), rgba(11, 44, 71, 0.8));
     color: #fff;
 }
 
@@ -43,6 +43,27 @@ body {
 .graphic {
     border: 5px solid #fff;
     border-radius: 20px;
+}
+
+.planetBox {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#planetPic {
+    width: 40%;
+}
+
+.spaceshipHidden {
+    display: hidden;
+}
+
+.spaceshipShow {
+    display: inline-block;
+}
+
+#spaceshipHull {
+    text-align: center; 
 }
 
 .hangman {

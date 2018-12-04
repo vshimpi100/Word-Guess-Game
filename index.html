@@ -24,6 +24,8 @@
         <div class="jumbotron container">
             <h1> Space Trivia </h1>
             <h2> Guess the Planet to Blast Off!</h2>
+            <h3> Press any Key to Start! </h3>
+            <h3> Wins: <span id="wins">0</span></h3>
         </div>
     </header>
     <section class="main container">
@@ -32,28 +34,30 @@
             <div class="graphic col-md-6"> 
 
                 <!-- image of the planet guessed -->
-                <div class="planet">
-                    <img id="planetPic">
+                <div class="row">
+                    <div class="planetBox col-12">
+                        <img id="planetPic" class="">
+                    </div>
                 </div>
 
                 <!-- image of the spaceship -->
                 <div class="spaceship">
                     <!-- parts will appear with % word completion as you guess -->
                     <!-- hull 1st, then cone, left fin, right fin, fire -->
-                    <div class="spaceship__hull">
-                        
+                    <div id="spaceship__hull" class="spaceshipHidden">
+                        <img src="assets/images/body.png">
                     </div>
-                    <div class="spaceship__cone">
-
+                    <div id="spaceship__cone" class="spaceshipHidden">
+                        <img src="assets/images/nosecone.png">
                     </div>
-                    <div class="spaceship__fin--left">
-
+                    <div id="spaceship__fin--left" class="spaceshipHidden">
+                        <img src="assets/images/leftfin.png" class="spaceshipHidden">
                     </div>
-                    <div class="spaceship__fin--right">
-
+                    <div id="spaceship__fin--right" class="spaceshipHidden">
+                        <img src="assets/images/rightfin.png">
                     </div>
-                    <div class="spaceship__fire">
-
+                    <div id="spaceship__fire" class="spaceshipHidden">
+                        <img src="assets/images/fire.png">
                     </div>
                 </div>
             </div>
@@ -70,6 +74,7 @@
                         <!-- guesses go here -->
                     </ul>
                 </div>
+                <h3>Remaining: <span id="guessesLeft">5</span></h3>
                 <button id="newWord" class="btn btn-white col-offset-lg-6 col-6">
                         New Word
                 </button>

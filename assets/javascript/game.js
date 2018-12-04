@@ -7,7 +7,8 @@ var hangman = {
     word: "", //set word as empty string
     blanks: "", //initialize blanks
 
-    wins: "", //wins
+    winNum: 0, //wins
+    remain: 5, //guesses left
 
     guessed: [], //all guessed letters
 
@@ -20,7 +21,14 @@ var hangman = {
         //reset 
         blanks = "";
         guessed = [];
+        remain = 5;
+        document.getElementById("guessesLeft").textContent = this.remain; //NOT WORKING
         document.getElementById("guesses").innerHTML="";
+        document.getElementById("planetPic").removeAttribute("src");
+
+        //resetting spaceship
+        document.getElementsByClassName("spaceshipShow")["class"] = "spaceshipHidden";
+
         console.log (guessed);
 
         //write blanks
@@ -55,6 +63,11 @@ var hangman = {
 
             // put li element in slot
             document.getElementById("guesses").appendChild(wrong);
+
+            //update remaining guesses
+            console.log(this.remain);
+            this.remain = this.remain - 1;
+            document.getElementById("guessesLeft").textContent = this.remain;
         }
         // else it must be right
         else {
@@ -122,31 +135,36 @@ var hangman = {
                 planetPic = "http://pngimg.com/uploads/earth/earth_PNG11.png";
                 break;
             case "MARS":
-                planetPic = "";
+                planetPic = "https://upload.wikimedia.org/wikipedia/commons/f/f5/3D_Mars.png";
                 break;
             case "SATURN":
-                planetPic = "";
+                planetPic = "https://pics.clipartpng.com/idownload-image.php?file=Saturn_PNG_Clip_Art-2164.png";
                 break;
             case "JUPITER":
-                planetPic = "";
+                planetPic = "https://upload.wikimedia.org/wikipedia/commons/e/e1/Jupiter_%28transparent%29.png";
                 break;
             case "VENUS":
-                planetPic = "";
+                planetPic = "https://upload.wikimedia.org/wikipedia/commons/f/f4/3D_Venus.png";
                 break;
             case "NEPTUNE":
-                planetPic = "";
+                planetPic = "https://upload.wikimedia.org/wikipedia/commons/d/da/3D_Neptune.png";
                 break;
             case "URANUS":
-                planetPic = "";
+                planetPic = "https://upload.wikimedia.org/wikipedia/commons/3/32/3D_Uranus.png";
                 break;
             case "PLUTO":
-                planetPic = "";
+                planetPic = "https://vignette.wikia.nocookie.net/thesolarsystem6361/images/0/0a/Pluto_spacepedia.png/revision/latest/scale-to-width-down/480?cb=20180302130217";
                 break;
             default:
                 break;
         }
 
+        
         document.getElementById("planetPic").setAttribute("src",planetPic);
+
+        //add to wins
+        hangman.winNum = hangman.winNum + 1;
+        document.getElementById("wins").textContent = hangman.winNum;
 
         //game resets after 1 second
         setTimeout(function(){
@@ -167,3 +185,8 @@ document.addEventListener("keydown", function (event) {
     console.log(guessedLetter);
     hangman.guess(guessedLetter);
 });
+
+if(hangman.remain==0){ //NOT WORKING
+    alert("You lose!");
+    hangman.newWord();
+};
