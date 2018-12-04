@@ -1,0 +1,80 @@
+html {
+
+}
+
+body {
+    background-color: rgba(42, 46, 48, 0.8);
+    color: #fff;
+}
+
+.header {
+
+}
+
+.jumbotron {
+    height: 50vh; /* vh size sets the element to 95% of viewport height*/
+    background-image: /* we can set a gradient and image together */
+        linear-gradient(
+            to right bottom, /*gradient direction*/
+            rgba(11, 44, 71, 0.8), /*start color with 80% transparent*/
+            rgba(42, 46, 48, 0.8)), /*end color with 80% transparent*/
+        url(https://media.giphy.com/media/9bTjZrytydVRK/giphy.gif); /* setting background image, which will appear behind the gradient */
+    background-size: cover; /* cover will fit the element fully to the element box */
+    background-position: top; /* ensures image stays aligned to top of container */
+    text-align: center;
+
+    -webkit-clip-path: circle(49.7% at 50% 0);
+    clip-path: circle(49.7% at 50% 0);
+    margin-bottom: 0vh;
+}
+
+.main {
+    height: 50%;
+}
+
+.jumbotron h1 {
+    color: inherit;
+}
+
+.jumbotron h2 {
+    color: inherit;
+}
+
+.graphic {
+    border: 5px solid #fff;
+    border-radius: 20px;
+}
+
+.hangman {
+    border: 5px solid #fff;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#newWord {
+    margin-bottom: 10px;
+}
+
+.word {
+    font-weight: bolder;
+    font-size: 3rem;
+}
+
+#guessLabel{
+    padding: 30px;
+    text-align: center;
+}
+
+#guesses{
+    text-align: left;
+    margin-top: 10px;
+    overflow: auto;
+}
+
+#guesses li {
+    list-style: none;
+    display: block;
+    float: left;
+    padding: 10px;
+    font-size: 1.5rem;
+}
