@@ -3,19 +3,19 @@
 
 <head>
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-  
-  <!-- Title -->
-  <title>Vivek's Space Hang-Man!</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
+    <!-- Title -->
+    <title>Vivek's Space Hang-Man!</title>
 </head>
 
 <body>
@@ -31,65 +31,60 @@
     <section class="main container">
         <div class="row">
             <!-- Graphics for when you guess right/win -->
-            <div class="graphic col-md-6"> 
-
+            <div class="graphic col-md-6">
                 <!-- image of the planet guessed -->
-                <div class="row">
+                <div class="planetary row">
                     <div class="planetBox col-12">
-                        <img id="planetPic" class="">
+                        <img id="planetPic">
                     </div>
                 </div>
 
                 <!-- image of the spaceship -->
-                <div class="spaceship">
-                    <!-- parts will appear with % word completion as you guess -->
-                    <!-- hull 1st, then cone, left fin, right fin, fire -->
-                    <div id="spaceship__hull" class="spaceshipHidden">
-                        <img src="assets/images/body.png">
-                    </div>
-                    <div id="spaceship__cone" class="spaceshipHidden">
-                        <img src="assets/images/nosecone.png">
-                    </div>
-                    <div id="spaceship__fin--left" class="spaceshipHidden">
-                        <img src="assets/images/leftfin.png" class="spaceshipHidden">
-                    </div>
-                    <div id="spaceship__fin--right" class="spaceshipHidden">
-                        <img src="assets/images/rightfin.png">
-                    </div>
-                    <div id="spaceship__fire" class="spaceshipHidden">
-                        <img src="assets/images/fire.png">
+                <div class="spaceship row">
+                    <div class="spaceship_box col-12">
+                        <!-- parts will appear with % word completion as you guess -->
+                        <!-- hull 1st, then cone, left fin, right fin, fire -->
+                        <div class="row spaceship_img">
+                            <img src="assets/images/nosecone2.png" class="spaceshipHidden" id="spaceship1">
+                            <img src="assets/images/leftfin.png" class="spaceshipHidden" id="spaceship2">
+                            <img src="assets/images/body.png" class="spaceshipHidden" id="spaceship3">
+                            <img src="assets/images/rightfin.png" class="spaceshipHidden" id="spaceship4">
+                            <img src="assets/images/fire.png" class="spaceshipHidden" id="spaceship5">
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Hangman section -->
+                <!-- Hangman section -->
             <div class="hangman col-md-6">
-                
-                <div class="word" id="word">
-                    <!-- word goes here -->
-                </div>
-                <h3 id="guessLabel">Your Guesses:</h3>
-                <div class="guessed">
-                    <ul id="guesses">
-                        <!-- guesses go here -->
-                    </ul>
-                </div>
-                <h3>Remaining: <span id="guessesLeft">5</span></h3>
-                <button id="newWord" class="btn btn-white col-offset-lg-6 col-6">
+
+                    <div class="word" id="word">
+                        <!-- word goes here -->
+                    </div>
+                    <h3 id="guessLabel">Your Guesses:</h3>
+                    <div class="guessed">
+                        <ul id="guesses">
+                            <!-- guesses go here -->
+                        </ul>
+                    </div>
+                    <h3>Remaining: <span id="guessesLeft">5</span></h3>
+                    <button id="newWord" class="btn btn-white col-offset-lg-6 col-6">
                         New Word
-                </button>
-            </div>
+                    </button>
+        </div>
         </div>
 
     </section>
 
-    <footer class="footer">
+    <footer class="footer col-12">
         <p>Copyright ©</p>
     </footer>
 
     <!-- Linking JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <script src="assets/javascript/game.js"></script>
 </body>

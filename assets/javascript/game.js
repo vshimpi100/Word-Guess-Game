@@ -21,18 +21,22 @@ var hangman = {
         //reset 
         blanks = "";
         guessed = [];
-        remain = 5;
+        this.remain = 5;
         document.getElementById("guessesLeft").textContent = this.remain; //NOT WORKING
         document.getElementById("guesses").innerHTML="";
         document.getElementById("planetPic").removeAttribute("src");
 
         //resetting spaceship
-        document.getElementsByClassName("spaceshipShow")["class"] = "spaceshipHidden";
+        document.getElementById("spaceship1").setAttribute("class","spaceshipHidden");
+        document.getElementById("spaceship2").setAttribute("class","spaceshipHidden");
+        document.getElementById("spaceship3").setAttribute("class","spaceshipHidden");
+        document.getElementById("spaceship4").setAttribute("class","spaceshipHidden");
+        document.getElementById("spaceship5").setAttribute("class","spaceshipHidden");
 
         console.log (guessed);
 
         //write blanks
-        for (i = 0; i < word.length; i++) {
+        for (let i = 0; i < word.length; i++) {
             blanks = blanks + " _ ";
         };
 
@@ -67,6 +71,12 @@ var hangman = {
             //update remaining guesses
             console.log(this.remain);
             this.remain = this.remain - 1;
+            if(hangman.remain==0){ //NOT WORKING
+                setTimeout(function(){
+                    alert("You lose!");
+                    hangman.newWord();
+                },100);
+            };
             document.getElementById("guessesLeft").textContent = this.remain;
         }
         // else it must be right
@@ -78,7 +88,7 @@ var hangman = {
             //initialize an array of correct indices
             var indices = [];
             //iterate through word to see collect correct indices
-            for (i = 0; i < word.length; i++) {
+            for (let i = 0; i < word.length; i++) {
                 checkLetter = word[i];
                 if (checkLetter === letter) {
                     indices.push(i);
@@ -86,7 +96,7 @@ var hangman = {
             }
 
             //replace blanks at indices with word at indices
-            for (i = 0; i < indices.length; i++) {
+            for (let i = 0; i < indices.length; i++) {
                 index = indices[i];
 
                 //initialize an array to replace the blanks
@@ -97,7 +107,7 @@ var hangman = {
                 console.log("the letter at that index is " + word[index]);
 
                 // write the word to the blanks array
-                for (i=0;i<word.length;i++){
+                for (let i=0;i<word.length;i++){
 
                     //if the letter has been guessed, add it to the array
                     if (guessed.includes(word[i])) {
@@ -110,9 +120,39 @@ var hangman = {
                         }
                     blanks = blanks + blanksArray[i];
                 }
+                //spaceship
+                var blankMatch = [] + blanks.match(/_/g);
+                var wordPercent = (word.length - (blankMatch.length))/word.length;
+                console.log (wordPercent);
 
+                //winning
                 if (blanks.includes(" _ ") != true) {
+                    document.getElementById("spaceship5").removeAttribute("class");
+                    document.getElementById("spaceship4").removeAttribute("class");
+                    document.getElementById("spaceship3").removeAttribute("class");
+                    document.getElementById("spaceship2").removeAttribute("class");
+                    document.getElementById("spaceship1").removeAttribute("class");
                     hangman.win();
+                } else if(wordPercent>=0.8) {
+                    document.getElementById("spaceship5").removeAttribute("class");
+                    document.getElementById("spaceship4").removeAttribute("class");
+                    document.getElementById("spaceship3").removeAttribute("class");
+                    document.getElementById("spaceship2").removeAttribute("class");
+                    document.getElementById("spaceship1").removeAttribute("class");
+                } else if (wordPercent>=0.6){
+                    document.getElementById("spaceship4").removeAttribute("class");
+                    document.getElementById("spaceship3").removeAttribute("class");
+                    document.getElementById("spaceship2").removeAttribute("class");
+                    document.getElementById("spaceship1").removeAttribute("class");
+                } else if (wordPercent>=0.4){
+                    document.getElementById("spaceship3").removeAttribute("class");
+                    document.getElementById("spaceship2").removeAttribute("class");
+                    document.getElementById("spaceship1").removeAttribute("class");
+                } else if (wordPercent>=0.2){
+                    document.getElementById("spaceship2").removeAttribute("class");
+                    document.getElementById("spaceship1").removeAttribute("class");
+                } else {
+                    document.getElementById("spaceship1").removeAttribute("class");
                 }
 
                 console.log(blanks);
@@ -166,10 +206,10 @@ var hangman = {
         hangman.winNum = hangman.winNum + 1;
         document.getElementById("wins").textContent = hangman.winNum;
 
-        //game resets after 1 second
+        //game resets after 2 seconds
         setTimeout(function(){
             hangman.newWord();
-        },1000);
+        },2000);
     },
 };
 
@@ -186,7 +226,3 @@ document.addEventListener("keydown", function (event) {
     hangman.guess(guessedLetter);
 });
 
-if(hangman.remain==0){ //NOT WORKING
-    alert("You lose!");
-    hangman.newWord();
-};
